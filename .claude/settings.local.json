@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm migration:run:*)",
+      "Bash(pnpm add:*)",
+      "Bash(pnpm --filter backend run seed:*)",
+      "Bash(docker run:*)",
+      "Bash(where:*)",
+      "Bash(netstat:*)",
+      "Bash(tasklist:*)",
+      "Bash(pnpm dev:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

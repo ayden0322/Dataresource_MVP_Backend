@@ -1,0 +1,11 @@
+{
+  "build_command": "pnpm install && pnpm run build",
+  "start_command": "node dist/main.js",
+  "install_command": "pnpm install --frozen-lockfile",
+  "framework": "nodejs",
+  "node_version": "18",
+  "env": {
+    "NODE_ENV": "production"
+  }
+}
+
