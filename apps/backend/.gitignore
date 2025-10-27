@@ -31,8 +31,9 @@ Thumbs.db
 # Testing
 coverage/
 
-# Uploads (if using local storage)
-uploads/
+# Uploads (if using local storage) - only ignore uploaded files, not source code
+/uploads/
+public/uploads/
 
 # Cache
 .eslintcache
