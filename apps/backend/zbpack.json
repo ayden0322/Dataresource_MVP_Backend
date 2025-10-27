@@ -1,7 +1,7 @@
 {
-  "build_command": "pnpm install && pnpm run build",
-  "start_command": "node dist/main.js",
-  "install_command": "pnpm install --frozen-lockfile",
+  "build_command": "cd ../.. && pnpm install --frozen-lockfile && pnpm --filter backend build",
+  "start_command": "cd apps/backend && node dist/main.js",
+  "install_command": "cd ../.. && pnpm install --frozen-lockfile",
   "framework": "nodejs",
   "node_version": "18",
   "buildpack": true,
