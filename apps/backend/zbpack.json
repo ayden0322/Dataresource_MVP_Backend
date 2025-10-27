@@ -4,6 +4,7 @@
   "install_command": "pnpm install --frozen-lockfile",
   "framework": "nodejs",
   "node_version": "18",
+  "buildpack": true,
   "env": {
     "NODE_ENV": "production"
   }
