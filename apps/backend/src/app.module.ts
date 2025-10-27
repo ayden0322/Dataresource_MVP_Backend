@@ -30,11 +30,13 @@ import { ReviewsModule } from './reviews/reviews.module';
           logging: process.env.NODE_ENV === 'development',
         };
 
-        // SSL 配置: 生產環境使用 SSL (但不驗證證書)
-        if (process.env.NODE_ENV === 'production') {
+        // SSL 配置: 根據環境變數決定是否使用 SSL
+        if (process.env.DATABASE_SSL === 'true') {
           config.ssl = {
             rejectUnauthorized: false,
           };
+        } else {
+          config.ssl = false;
         }
 
         return config;
