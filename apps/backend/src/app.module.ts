@@ -3,7 +3,6 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { typeOrmConfig } from './config/typeorm.config';
 import configuration from './config/configuration';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
@@ -22,14 +21,24 @@ import { ReviewsModule } from './reviews/reviews.module';
 
     // TypeORM 資料庫配置
     TypeOrmModule.forRootAsync({
-      useFactory: () => ({
-        type: 'postgres',
-        url: process.env.DATABASE_URL,
-        autoLoadEntities: true,  // 讓 NestJS 自動載入 entities
-        synchronize: false,
-        logging: process.env.NODE_ENV === 'development',
-        ssl: process.env.DATABASE_SSL === 'true' ? { rejectUnauthorized: false } : false,
-      }),
+      useFactory: () => {
+        const config: any = {
+          type: 'postgres',
+          url: process.env.DATABASE_URL,
+          autoLoadEntities: true,  // 讓 NestJS 自動載入 entities
+          synchronize: false,
+          logging: process.env.NODE_ENV === 'development',
+        };
+
+        // SSL 配置: 生產環境使用 SSL (但不驗證證書)
+        if (process.env.NODE_ENV === 'production') {
+          config.ssl = {
+            rejectUnauthorized: false,
+          };
+        }
+
+        return config;
+      },
     }),
 
     // 功能模組
