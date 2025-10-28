@@ -48,3 +48,6 @@ setup-scripts/
 *環境設定*.txt
 正式的環境設定.txt
 測試端的環境設定.txt
+
+# Local development documentation (contains passwords and sensitive info)
+LOCAL_DEVELOPMENT.md
