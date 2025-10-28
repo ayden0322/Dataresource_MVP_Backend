@@ -11,6 +11,8 @@
     "migration:run": "cross-env TS_NODE_PROJECT=./tsconfig.json ts-node --transpile-only -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run -d src/config/typeorm.config.ts",
     "migration:revert": "cross-env TS_NODE_PROJECT=./tsconfig.json ts-node --transpile-only -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:revert -d src/config/typeorm.config.ts",
     "seed": "ts-node src/database/seeds/seed.ts",
+    "seed:clear": "ts-node src/database/seeds/clear-users.ts",
+    "seed:reset": "pnpm seed:clear && pnpm seed",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
