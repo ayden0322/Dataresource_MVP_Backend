@@ -40,3 +40,11 @@ coverage/
 
 # Docker
 docker-compose.override.yml
+
+# Setup scripts (local configuration)
+setup-scripts/
+
+# Environment configuration files (contains sensitive data)
+*環境設定*.txt
+正式的環境設定.txt
+測試端的環境設定.txt
